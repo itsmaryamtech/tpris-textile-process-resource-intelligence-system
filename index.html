@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TPRIS · Textile Process & Resource Intelligence System</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--pu:#30213D;--li:#C7E65A;--la:#F3EFF7;--or:#A58BB8;--bg:#F3EFF7;--tx:#30213D;--mu:#5e4d70;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#241830;--tx:#F3EFF7;--mu:#c9bbd6}}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.55 "Space Grotesk",system-ui,sans-serif}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;margin:0;line-height:1.02}h2{font-size:clamp(32px,5.2vw,58px)}
+.w{max-width:1120px;margin:0 auto;padding:0 20px}section{padding:88px 0}a{color:inherit}
+.dk{background:var(--pu);color:var(--la)}.dk .mu{color:var(--or)}.mu{color:var(--mu)}
+.eye{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--or);margin-bottom:12px}
+nav{position:sticky;top:0;z-index:9;background:var(--pu);color:var(--la);padding-top:env(safe-area-inset-top,0px)}
+nav .w{display:flex;justify-content:space-between;align-items:center;height:58px;gap:12px}
+.lg{font:800 22px Fraunces,serif;text-decoration:none}.lg b{color:var(--li)}
+.nl{display:flex;gap:18px;font-size:14px;align-items:center}.nl a{text-decoration:none;opacity:.85}.nl a:hover{color:var(--li);opacity:1}
+.mb{display:none;background:none;color:var(--la);border:1px solid var(--or);padding:6px 10px}
+@media(max-width:900px){.mb{display:block}.nl{display:none;position:absolute;top:58px;left:0;right:0;background:var(--pu);flex-direction:column;align-items:flex-start;padding:16px 20px}.nl.o{display:flex}}
+.btn{display:inline-block;border:0;cursor:pointer;background:var(--li);color:var(--pu);font:700 15px "Space Grotesk";padding:13px 22px;text-decoration:none;transition:.2s}.btn:hover{transform:translateY(-2px)}
+.btn.g{background:none;border:1.5px solid currentColor;color:inherit}.btn.s{padding:8px 14px;font-size:13px}.row{display:flex;gap:12px;flex-wrap:wrap}
+.hero{padding:76px 0 40px;overflow:hidden}.hero h1{font-size:clamp(40px,7.4vw,92px);max-width:900px}.hero h1 i{color:var(--li);font-style:normal}
+.hero p{max-width:600px;color:#d9cfe4;margin:22px 0 28px}
+.cloth{display:block;width:100%;height:150px;margin-top:34px}.cloth path{fill:none;stroke-width:3;stroke-dasharray:14 10;animation:fl 3s linear infinite}
+@keyframes fl{to{stroke-dashoffset:-48}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
+.kp{display:flex;gap:36px;flex-wrap:wrap;margin-top:10px}.kp b{display:block;font:800 34px Fraunces;color:var(--li)}.kp span{font-size:12px;color:var(--or)}
+.jr{display:flex;position:relative;margin:36px 0 0;overflow-x:auto}.jr:before{content:"";position:absolute;left:0;right:0;top:27px;border-top:3px dashed var(--or);animation:none}
+.jr button{position:relative;flex:1;min-width:104px;background:none;border:0;color:var(--la);cursor:pointer;font:500 13px "Space Grotesk";padding:0 4px 8px}
+.jr em{display:grid;place-items:center;width:54px;height:54px;border-radius:50%;margin:0 auto 8px;background:var(--pu);border:3px solid var(--or);font:800 20px Fraunces;font-style:normal;transition:.25s}
+.jr button.on em{background:var(--li);color:var(--pu);border-color:var(--li);transform:scale(1.15)}
+.sd{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;margin-top:30px}@media(max-width:760px){.sd{grid-template-columns:1fr}}
+.sd h3{font-size:34px;grid-column:1/-1;color:var(--li);margin-bottom:6px}.sd p{grid-column:1/-1;margin:0 0 14px;color:#d9cfe4}
+.sd div{border-top:1px solid var(--or);padding:10px 0 14px;font-size:15px}.sd small{display:block;color:var(--or);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:11px}
+.pb{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0}.pb button{background:none;border:1.5px solid var(--pu);color:var(--tx);padding:9px 14px;cursor:pointer;font:500 14px "Space Grotesk"}.pb button.on{background:var(--pu);color:var(--li)}
+@media(prefers-color-scheme:dark){.pb button{border-color:var(--or)}}
+.inv{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px}@media(max-width:800px){.inv{grid-template-columns:1fr}}
+.inv h4{margin:0 0 8px;font:700 12px "Space Grotesk";letter-spacing:.16em;text-transform:uppercase;color:var(--or)}.inv ul{margin:0;padding-left:18px}
+.res{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);border-top:3px solid var(--li)}@media(max-width:600px){.res{grid-template-columns:1fr}}
+.res div{padding:16px 16px 0 0}.res b{display:block;font:800 36px Fraunces}.res span{font-size:13px;color:var(--mu)}
+.tag{display:inline-block;background:var(--li);color:var(--pu);font:700 11px "Space Grotesk";letter-spacing:.1em;padding:3px 8px;margin-bottom:14px}
+.cmp{display:grid;grid-template-columns:1.4fr 1fr;gap:34px;margin-top:28px}@media(max-width:820px){.cmp{grid-template-columns:1fr}}
+.br{display:grid;grid-template-columns:90px 1fr 70px;gap:10px;align-items:center;font-size:13px;margin:8px 0}.br i{display:block;height:14px;background:var(--or);transition:width .6s}.br i.h{background:var(--li)}
+.ln{font-size:12px;color:var(--or);margin-top:14px}
+.al{border:2px solid var(--li);padding:16px;min-height:150px;font-size:14px}.al .row{margin-top:12px}.al select{background:var(--pu);color:var(--la);border:1px solid var(--or);padding:8px}
+.log{font-size:12px;color:#d9cfe4;margin-top:10px;border-left:2px solid var(--li);padding-left:10px}
+.ro{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:28px}@media(max-width:800px){.ro{grid-template-columns:1fr}}
+label{display:block;font-size:13px;font-weight:700;margin:12px 0 4px}
+input,select,textarea{width:100%;font:15px "Space Grotesk";padding:10px;border:1.5px solid var(--or);background:var(--bg);color:var(--tx)}
+.dk input,.dk select,.dk textarea{background:#3b2a4a;color:var(--la)}input:focus,select:focus,textarea:focus{outline:2px solid var(--li);outline-offset:1px}
+.ob{background:var(--pu);color:var(--la);padding:26px}.ob div{margin-bottom:12px;font-size:14px;display:flex;justify-content:space-between;border-bottom:1px solid #4a3a5a;padding-bottom:6px}.ob b{font:800 20px Fraunces;color:var(--li)}
+.ob .big{display:block;font:800 40px Fraunces;color:var(--li);border:0}.hy{color:var(--li);font-size:12px;font-weight:700}
+.tr{display:grid;grid-template-columns:repeat(3,1fr);gap:0 36px;margin-top:30px}@media(max-width:800px){.tr{grid-template-columns:1fr}}
+.tr div{border-top:3px solid var(--li);padding-top:10px;margin-bottom:22px;font-size:15px}.tr b{display:block;font:800 22px Fraunces;margin-bottom:6px}
+.rm{display:flex;gap:0;margin-top:10px;flex-wrap:wrap}.rm span{flex:1;min-width:150px;border:1px solid var(--or);padding:12px;margin-left:-1px;font-size:13px}.rm span b{display:block;color:var(--li)}
+.pr{display:flex;gap:6px;margin:18px 0}.pr i{flex:1;height:5px;background:#4a3a5a}.pr i.on{background:var(--li)}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}@media(max-width:640px){.fg{grid-template-columns:1fr}}.fu{grid-column:1/-1}
+.er{color:#ff9aa8;font-size:12px;min-height:15px}.ck label{font-weight:400;display:flex;gap:8px;align-items:center;margin:6px 0}.ck input{width:auto}.hp{position:absolute;left:-9999px}
+footer{background:var(--pu);color:var(--or);padding:34px 0;font-size:14px;border-top:1px solid #4a3a5a}footer .w{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.mq{background:var(--li);color:var(--pu);overflow:hidden;white-space:nowrap;border-block:3px solid var(--pu)}.mq div{display:inline-block;padding:12px 0;font:800 18px Syne,sans-serif;letter-spacing:.06em;text-transform:uppercase;animation:mq 28s linear infinite}@keyframes mq{to{transform:translateX(-50%)}}
+h1,h2,h3{font-family:Syne,'Space Grotesk',sans-serif;letter-spacing:-.025em;line-height:1.05}.hero h1{font-size:clamp(34px,6vw,72px)}h2{font-size:clamp(28px,4.4vw,48px)}.sd h3{font-size:30px}
+h2:after{content:'';display:block;width:90px;height:8px;background:var(--li);margin-top:16px}.dk h2:after{background:var(--or)}
+.hero{background-image:repeating-linear-gradient(45deg,rgba(165,139,184,.09) 0 2px,transparent 2px 14px),repeating-linear-gradient(-45deg,rgba(165,139,184,.09) 0 2px,transparent 2px 14px)}
+.al,.ob{box-shadow:9px 9px 0 var(--li)}.ob{box-shadow:9px 9px 0 var(--or)}.pb button.on{box-shadow:4px 4px 0 var(--li)}.res div{border-left:3px solid var(--or);padding-left:14px;margin-top:14px}
+.fw{display:grid;grid-template-columns:.8fr 1.2fr;gap:36px;margin-top:30px;align-items:start}@media(max-width:860px){.fw{grid-template-columns:1fr}}
+.fi{border-left:8px solid var(--li);padding-left:20px}.fi h3{font-size:22px;margin:0 0 8px}.fi ol,.fi ul{margin:0 0 20px;padding-left:20px}.fi li{margin-bottom:6px;font-size:15px}
+.fc{background:var(--pu);color:var(--la);padding:28px;box-shadow:10px 10px 0 var(--li)}.fc input,.fc select,.fc textarea{background:#3b2a4a;color:var(--la)}.fc .btn{background:var(--li)!important;color:var(--pu)!important}.fc .btn.g{background:none!important;color:var(--la)!important}.fc .mu{color:var(--or)}.fc label{color:var(--li)}.fc .ck label{color:var(--la)}
+.fq details{border-top:2px solid var(--pu);padding:16px 0}.fq details:last-child{border-bottom:2px solid var(--pu)}.fq summary{cursor:pointer;font:700 18px Syne,sans-serif;list-style:none;display:flex;justify-content:space-between;gap:12px}.fq summary:after{content:'+';color:var(--or);font-size:26px;line-height:1}.fq details[open] summary:after{content:'–'}.fq p{margin:12px 0 0;max-width:720px;color:var(--mu)}
+@media(prefers-color-scheme:dark){.fq details{border-color:var(--or)}}
+.ct{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px}@media(max-width:700px){.ct{grid-template-columns:1fr}}.ct a{display:flex;flex-direction:column;gap:6px;text-decoration:none;border:2px solid var(--li);color:var(--la);padding:22px 52px 22px 24px;font:700 clamp(17px,2.2vw,22px)/1.25 Syne,sans-serif;overflow-wrap:anywhere;transition:.2s;position:relative}.ct a:after{content:'↗';position:absolute;top:18px;right:20px;color:var(--li);font-size:22px}.ct a:hover{background:var(--li);color:var(--pu)}.ct a:hover:after,.ct a:hover small{color:var(--pu)}.ct small{display:block;font:700 11px 'Space Grotesk';letter-spacing:.14em;text-transform:uppercase;color:var(--li)}footer{padding-bottom:84px}
+.wf{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:9;background:var(--li);color:var(--pu);font:700 14px 'Space Grotesk';padding:12px 18px;text-decoration:none;box-shadow:5px 5px 0 var(--pu);border:2px solid var(--pu)}
+</style><link href='https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap' rel='stylesheet'></head><body>
+<nav><div class="w"><a class="lg" href="#top">TP<b>RIS</b></a><button class="mb" id="mb">Menu</button>
+<div class="nl" id="nl"><a href="#journey">Factory Journey</a><a href="#losses">Find Losses</a><a href="#demo">Demo</a><a href="#roi">ROI</a><a href="#trust">Trust</a><a href="#faq">FAQ</a><a href="#contact">Contact</a><a class="btn s" href="#assess">Request Assessment</a></div></div></nav>
+
+<header class="dk hero" id="top"><div class="w"><div class="eye">Textile Process &amp; Resource Intelligence System</div>
+<h1>Your Factory Uses Resources Every Minute. <i>Do You Know Where They Go?</i></h1>
+<p>From electricity and water to steam and production batches, TPRIS connects textile processing operations with the resource intelligence needed to identify inefficiencies and make better decisions.</p>
+<div class="row"><a class="btn" href="#journey">Explore the Factory</a><a class="btn g" href="#assess">Request an Industrial Assessment</a></div>
+<svg class="cloth" viewBox="0 0 1000 150" preserveAspectRatio="none" aria-hidden="true"><path d="M0 90 C150 10 250 140 400 80 S650 20 800 90 S950 120 1000 60" stroke="#C7E65A"/><path d="M0 110 C150 40 250 150 400 100 S650 50 800 110 S950 140 1000 80" stroke="#A58BB8" style="animation-duration:4.5s"/></svg>
+<div class="kp"><div><b id="k1">0.0</b><span>kWh/kg · sample</span></div><div><b id="k2">0</b><span>litres/kg · sample</span></div><div><b id="k3">0.0</b><span>kg steam/kg · sample</span></div></div>
+<p style="font-size:12px;margin:14px 0 0;color:var(--or)">Indicators are simulated for demonstration. No factory is connected.</p></div></header>
+
+<div class='mq' aria-hidden='true'><div>Fabric Intake ✦ Pretreatment ✦ Dyeing ✦ Washing &amp; Rinsing ✦ Finishing ✦ Quality Inspection ✦ Final Dispatch ✦ Fabric Intake ✦ Pretreatment ✦ Dyeing ✦ Washing &amp; Rinsing ✦ Finishing ✦ Quality Inspection ✦ Final Dispatch ✦ </div></div>
+<section id="journey" class="dk" style="padding-top:60px"><div class="w"><div class="eye">The Intelligent Factory Journey</div><h2>Follow the fabric. Find the resources.</h2>
+<p class="mu" style="max-width:600px">Small inefficiencies at each stage can add up to real production cost. Not every factory has every problem. Select a stage.</p>
+<div class="jr" id="jr"></div><div class="sd" id="sd"></div></div></section>
+
+<section id="losses"><div class="w"><div class="eye">Resource Loss Investigation</div><h2>Find where your factory is losing resources.</h2>
+<div class="pb" id="pb" role="tablist"></div><span class="tag">SIMULATED DEMO DATA</span><div class="inv" id="iv"></div><div class="res" id="rs"></div></div></section>
+
+<section id="demo" class="dk"><div class="w"><div class="eye">See How Factory Intelligence Works</div><h2>Compare two batches. Simulate a spike. Record the action.</h2>
+<p class="mu">Two comparable sample batches, 500 kg each, same fabric and recipe reference. <span class="tag" style="margin:0">SIMULATED</span></p>
+<div class="cmp"><div id="bars"></div><div><div class="al" id="al"></div><div class="log" id="lgg">Event log is empty.</div></div></div>
+<div class="row" style="margin-top:18px"><button class="btn" id="sp">Simulate abnormal water use in B-2042</button><button class="btn g" id="rsb">Reset</button></div></div></section>
+
+<section id="roi"><div class="w"><div class="eye">Industrial ROI and Cost Analysis</div><h2>Your numbers. Your assumptions.</h2>
+<div class="ro"><div id="rf"></div><div class="ob" aria-live="polite" id="ro"></div></div></div></section>
+
+<section id="trust" class="dk"><div class="w"><div class="eye">Business Trust</div><h2>Built around factory operations. Not empty AI promises.</h2>
+<div class="tr"><div><b>Today</b>Batch records, resource cost per kg, rule-based exception alerts, incident records and reports.</div><div><b>Needs physical meters</b>Machine-level electricity, water flow, steam and effluent data need submeters and instruments.</div><div><b>Needs your history</b>Baselines and batch comparisons need records from your own comparable batches.</div><div><b>Integrates later</b>Existing ERP, PLC or SCADA connections are scoped per factory.</div><div><b>Simulated here</b>Every figure on this page is sample data. No customers, certifications or savings results are claimed.</div><div><b>Human approval</b>TPRIS never changes recipes or process chemistry. Qualified personnel decide. It does not certify regulatory compliance.</div></div>
+<div class="rm"><span><b>Phase 1</b>Batch and resource records</span><span><b>Phase 2</b>Meter integrations</span><span><b>Phase 3</b>Baselines and alerts</span><span><b>Later</b>Advanced analytics, once validated on real data</span></div></div></section>
+
+<section id="assess"><div class="w"><div class="eye">Industrial Assessment</div><h2>Let’s understand your factory before we recommend a solution.</h2>
+<div class='fw'><aside class='fi'><h3>Before you start</h3><p>Four short steps, about five minutes. Having these ready helps:</p><ul><li>Approximate daily production in kg</li><li>Number of processing machines and shifts</li><li>Any meters or monitoring you already use</li><li>The one problem that costs you most</li></ul><h3>What happens next</h3><ol><li>We read your request and review your factory profile.</li><li>We contact you by your preferred method.</li><li>We hold an assessment call to understand your processes before recommending anything.</li></ol><p class='mu' style='font-size:13px'>Do not send confidential recipes or formulas. TPRIS never changes process chemistry.</p></aside><div class='fc'><div class="pr" id="pr"></div><form id="f" novalidate><div class="hp"><input id="hp" tabindex="-1" autocomplete="off" aria-hidden="true"></div><div class="fg" id="fg"></div>
+<div class="row" style="margin-top:18px"><button type="button" class="btn g" id="bk">Back</button><button class="btn" id="nx" type="submit">Continue</button></div></form><div id="dn"></div></div></div></div></section>
+<section id='faq'><div class='w fq'><div class='eye'>FAQ</div><h2>Straight answers for factory owners.</h2><div style='margin-top:30px'>
+<details><summary>Is the data on this website real?</summary><p>No. Every figure here is simulated for demonstration. No factory is connected and no customer results are claimed.</p></details>
+<details><summary>Do I need new meters or sensors?</summary><p>Machine-level electricity, water, steam and effluent data need submeters or instruments. Where meters do not exist, batch and downtime records can be entered manually to start.</p></details>
+<details><summary>Can TPRIS work with our existing systems?</summary><p>Integration with existing ERP, PLC or SCADA systems is possible and is scoped after we understand your setup. Nothing is connected by default.</p></details>
+<details><summary>Will it tell us to change our dye recipes?</summary><p>No. TPRIS records and compares chemical usage. Any recipe or process change must be approved by qualified textile-processing personnel.</p></details>
+<details><summary>Can you guarantee savings or regulatory compliance?</summary><p>No. The ROI calculator shows hypothetical estimates from your own assumptions. TPRIS supports compliance reporting but does not certify compliance.</p></details>
+<details><summary>Do you use AI?</summary><p>Today it is transparent, rule-based detection against baselines built from your own batches. Advanced analytics will be offered only after validation on real factory data.</p></details>
+<details><summary>What does the first assessment involve?</summary><p>A conversation about your processes, resource usage and problems. We recommend a solution only after that.</p></details>
+</div></div></section>
+<section id='contact' class='dk'><div class='w'><div class='eye'>Contact</div><h2>Talk to us directly.</h2><div class='ct'><a href='https://wa.me/923236202778' target='_blank' rel='noopener'><small>WhatsApp</small>+92 323 6202778</a><a href='mailto:maryamaientrepreneur@gmail.com'><small>Email</small>maryamaientrepreneur@gmail.com</a></div></div></section>
+<a class='wf' href='https://wa.me/923236202778' target='_blank' rel='noopener'>WhatsApp us</a>
+<footer><div class="w"><span>© 2026 TPRIS</span><span>All dashboard figures are simulated.</span></div></footer>
+
+<script>
+const $=i=>document.getElementById(i),R=(s,o)=>Math.round(s*(o||1))/(o||1);
+$('mb').onclick=()=>$('nl').classList.toggle('o');document.querySelectorAll('#nl a').forEach(a=>a.onclick=()=>$('nl').classList.remove('o'));
+setInterval(()=>{$('k1').textContent=(.62+Math.random()*.06).toFixed(2);$('k2').textContent=Math.round(78+Math.random()*6);$('k3').textContent=(5.8+Math.random()*.4).toFixed(1)},1400);
+/* journey */
+const ST=[["Fabric Intake","Greige fabric is received, weighed and assigned to a batch.","Handling energy, labour","Weight mismatch, unclear batch IDs","Wrong weight distorts every per-kg metric","Fabric weight, batch ID, fabric type","Digital batch creation so all later usage links to one ID","Records completed per batch"],
+["Pretreatment","Desizing, scouring and bleaching prepare fabric for dyeing.","Water, steam, chemicals, electricity","Excess rinsing, uneven heating","High water and steam per kg","Water flow, steam use, duration, chemical usage","Compares similar batches and flags unusual use","Litres/kg, kg steam/kg"],
+["Dyeing","Fabric is dyed to recipe in a controlled bath.","Steam, water, dyes, electricity","Process deviations, shade mismatch","Reprocessing multiplies resource cost","Recipe reference, temperature profile, machine ID, chemical use","Records deviations against batch history","Recipe variance, first-pass yield"],
+["Washing and Rinsing","Unfixed dye and chemicals are removed.","Large water volumes, steam","Repeated washing, long rinse cycles","Often a water-heavy stage","Water by stage, cycle count, duration","Shows water use by stage and exceptions","Water by stage, reuse %"],
+["Finishing","Drying, stentering and finishing set the fabric properties.","Electricity, thermal energy","Idle running, overloaded machines","Energy cost per batch rises quietly","Machine kWh, idle time, load","Tracks idle consumption and shift differences","kWh/kg, idle consumption"],
+["Quality Inspection","Fabric is checked against the required standard.","Labour, lighting","Late detection, unclear root cause","Rework consumes extra resources","Inspection result, defect type, batch ID","Links defects to batch records for investigation","Reprocessing %, rejected %"],
+["Final Dispatch","Approved batches are packed and released.","Labour, handling","Missing records, delays","Weak traceability of final cost","Dispatch time, final batch cost","Produces a batch cost and performance report","Cost per kg, output per shift"]];
+const L=["Stage","Resources used","Problems that can occur","Why it matters","Data to monitor","How TPRIS helps","KPIs"];
+ST.forEach((s,i)=>{const b=document.createElement('button');b.innerHTML='<em>'+(i+1)+'</em>'+s[0];b.onclick=()=>sg(i);$('jr').append(b)});
+function sg(i){[...$('jr').children].forEach((b,j)=>b.classList.toggle('on',i==j));const s=ST[i];
+$('sd').innerHTML='<h3>'+s[0]+'</h3><p>'+s[1]+'</p>'+s.slice(2).map((v,k)=>'<div><small>'+L[k+1]+'</small>'+v+'</div>').join('')}sg(0);
+/* investigation */
+const P={"Water consumption":{c:["Long rinsing cycles","Repeated washing","Unmonitored flow","Differences between similar batches"],d:["Water flow readings","Batch ID, machine ID","Process duration","Fabric weight"],a:["Compare similar batches","Highlight unusual use","Show the stage to investigate","Record corrective actions"],r:["134 L/kg","+27% vs baseline (122 → 134 L/kg is sample)","PKR 9,800 extra per 500 kg batch"]},
+"Electricity":{c:["Idle machine consumption","Excessive loading","Compressed-air inefficiency","Unusual demand"],d:["Submeter kWh","Machine ID, shift","Batch ID","Fabric weight"],a:["Compare shifts","Flag idle consumption","Cost per batch","Log actions"],r:["0.71 kWh/kg","+18% vs baseline","PKR 4,100 extra per batch"]},
+"Steam":{c:["Leaks","Heat loss","Inefficient heating cycles","Unmonitored use"],d:["Steam meter readings","Pressure, temperature","Batch ID","Fabric weight"],a:["Detect abnormal use","Compare batches","Prioritise inspection","Record actions"],r:["6.9 kg/kg","+15% vs baseline","PKR 7,200 extra per batch"]},
+"Reprocessing":{c:["Shade mismatch","Process deviation","Late quality detection"],d:["Quality result","Batch history","Extra water, steam, time","Defect type"],a:["Link rework to batch","Show added consumption","Support root-cause review"],r:["8.0% of batches","+3 points vs target","PKR 31,000 extra water and steam in sample"]},
+"Batch inconsistency":{c:["Recipe variance","Machine differences","Operator timing"],d:["Recipe reference","Machine ID","Process parameters","Quality status"],a:["Compare similar batches","Show deviations","Report variance"],r:["12 deviations","vs 7 baseline","Cost impact is estimated per batch"]},
+"Downtime":{c:["Repeated stoppages","Maintenance gaps","Manual-only records"],d:["Machine status","Downtime events","Shift","Maintenance history"],a:["Record events","Shift-wise reports","Repeat-stoppage analysis"],r:["14.5 h/month","−9% availability vs baseline","Output lost, estimated per shift"]}};
+Object.keys(P).forEach((k,i)=>{const b=document.createElement('button');b.textContent=k;b.onclick=()=>pk(k);$('pb').append(b)});
+function pk(k){[...$('pb').children].forEach(b=>b.classList.toggle('on',b.textContent==k));const p=P[k],u=a=>'<ul>'+a.map(x=>'<li>'+x+'</li>').join('')+'</ul>';
+$('iv').innerHTML='<div><h4>Possible causes</h4>'+u(p.c)+'</div><div><h4>Data required</h4>'+u(p.d)+'</div><div><h4>TPRIS response</h4>'+u(p.a)+'</div>';
+$('rs').innerHTML=['Observed','Against baseline','Estimated cost impact'].map((l,i)=>'<div><b>'+p.r[i].split(' (')[0]+'</b><span>'+l+'</span></div>').join('')}pk("Water consumption");
+/* demo */
+let D,ev;
+function init(){D={a:{n:"B-2041",w:122,e:.64,s:5.8},b:{n:"B-2042",w:124,e:.65,s:5.9}};ev=0;ren();$('lgg').textContent='Event log is empty.'}
+function ren(){const m=[["Water L/kg","w",200],["kWh/kg","e",1],["Steam kg/kg","s",9]];
+$('bars').innerHTML=m.map(([l,k,mx])=>[D.a,D.b].map(x=>'<div class="br"><span>'+l+' · '+x.n+'</span><div><i class="'+(x.n=="B-2042"&&ev?'h':'')+'" style="width:'+Math.min(100,x[k]/mx*100)+'%"></i></div><b>'+x[k]+'</b></div>').join('')).join('<hr style="border:0;border-top:1px solid #4a3a5a">');
+const a=$('al');a.innerHTML=ev==0?'No alert. Both batches are within their sample baseline.':ev==1?'<b>Alert:</b> B-2042 used '+D.b.w+' L/kg, '+Math.round((D.b.w/D.a.w-1)*100)+'% above comparable B-2041. Likely stage: Washing and Rinsing.<div class="row"><button class="btn s" id="inv">Investigate</button></div>':ev==2?'<b>Investigation:</b> extra rinse cycles recorded at Washing and Rinsing. Choose a corrective action.<div class="row"><select id="ac" aria-label="Corrective action"><option>Review rinse cycle count</option><option>Check flow meter calibration</option><option>Retrain shift operators</option></select><button class="btn s" id="rc">Record action</button></div>':'<b>Report:</b> B-2042 water +'+Math.round((D.b.w/D.a.w-1)*100)+'% vs B-2041. Action recorded: '+ev.act+'. Extra water cost at PKR 0.3/litre: PKR '+Math.round((D.b.w-D.a.w)*500*.3).toLocaleString()+' (sample).';
+if($('inv'))$('inv').onclick=()=>{ev=2;lg('Investigation opened for B-2042');ren()};
+if($('rc'))$('rc').onclick=()=>{ev={act:$('ac').value};lg('Corrective action recorded: '+ev.act);ren()}}
+function lg(m){const l=$('lgg');if(l.textContent.startsWith('Event log is'))l.textContent='';l.innerHTML+=new Date().toLocaleTimeString()+' · '+m+'<br>'}
+$('sp').onclick=()=>{if(ev)return;D.b.w=171;ev=1;lg('Abnormal water use simulated');ren()};$('rsb').onclick=init;init();
+/* roi */
+const RF=[["kg","Monthly production (kg)",100000],["kwh","Electricity (kWh)",60000],["et","Electricity tariff (PKR/kWh)",45],["l","Water (litres)",9000000],["wt","Water tariff (PKR per 1,000 L)",120],["sm","Monthly steam cost (PKR)",1800000],["ch","Monthly chemical cost (PKR)",2500000],["rp","Monthly reprocessing cost (PKR)",600000],["as","Assumed improvement (%) · your hypothesis",5],["iv","Implementation investment (PKR, optional)",0]];
+$('rf').innerHTML=RF.map(([i,l,v])=>'<label for="r_'+i+'">'+l+'</label><input id="r_'+i+'" type="number" min="0" value="'+v+'">').join('');
+const g=i=>+$('r_'+i).value||0,F=v=>'PKR '+Math.round(v).toLocaleString();
+function roi(){const e=g('kwh')*g('et'),w=g('l')/1000*g('wt'),s=g('sm'),c=g('ch'),r=g('rp'),t=e+w+s+c+r,sv=t*g('as')/100;
+$('ro').innerHTML='<div>Electricity<b>'+F(e)+'</b></div><div>Water<b>'+F(w)+'</b></div><div>Steam<b>'+F(s)+'</b></div><div>Chemicals<b>'+F(c)+'</b></div><div>Reprocessing<b>'+F(r)+'</b></div><div>Total entered expenditure<b>'+F(t)+'</b></div><div>Resource cost per kg<b>'+(g('kg')?F(t/g('kg')):'-')+'</b></div><span class="hy">HYPOTHETICAL, under your assumption. Not a guarantee.</span><div>Monthly opportunity<b>'+F(sv)+'</b></div><div>Annualized<b>'+F(sv*12)+'</b></div><div>Payback<b>'+(g('iv')>0?(sv>0?(g('iv')/sv).toFixed(1)+' months':'Not reached'):'Enter investment')+'</b></div>'}
+RF.forEach(([i])=>$('r_'+i).oninput=roi);roi();
+/* form */
+const ST4=[[["name","Full Name",1],["company","Company Name",1],["title","Job Title",1],["email","Business Email",1,"email"],["phone","Phone / WhatsApp",1,"tel"],["city","City",1],["country","Country",1]],
+[["ftype","Facility Type",1,"sel",["Dyeing and processing","Integrated textile mill","Finishing unit","Other"]],["cap","Production Capacity (kg/day)",1],["mach","Number of Processing Machines",1,"number"],["ops","Main Processing Operations",1],["shift","Number of Shifts",1,"number"],["mon","Current Monitoring System",0]],
+[["probs","Operational problems (select all that apply)",0,"chk",["Excessive electricity","High water consumption","Steam and thermal losses","Chemical usage","Batch quality variation","Reprocessing","Production downtime","Wastewater management","Lack of resource visibility","Other"]]],
+[["top","Problem needing most attention",1,"sel",["Electricity","Water","Steam","Chemicals","Quality and reprocessing","Downtime","Wastewater","Visibility"]],["sys","System currently used",0],["need","Type of monitoring required",0],["meth","Preferred consultation method",1,"sel",["WhatsApp","Phone call","Email","Factory visit"]],["det","Additional operational details",0,"ta"]]];
+let st=0;
+function rf(){$('pr').innerHTML=ST4.map((_,i)=>'<i class="'+(i<=st?'on':'')+'"></i>').join('');$('bk').style.visibility=st?'visible':'hidden';$('nx').textContent=st==3?'Submit request':'Continue';
+$('fg').innerHTML=ST4[st].map(([id,l,r,t,o])=>{const v=(window.V||{})[id]||'';let c=t=='sel'?'<select id="f_'+id+'"><option value="">Select</option>'+o.map(x=>'<option'+(x==v?' selected':'')+'>'+x+'</option>').join('')+'</select>':t=='ta'?'<textarea id="f_'+id+'" rows="3">'+v+'</textarea>':t=='chk'?'<div class="ck">'+o.map(x=>'<label><input type="checkbox" name="pb" value="'+x+'"'+(v.includes(x)?' checked':'')+'> '+x+'</label>').join('')+'</div>':'<input id="f_'+id+'" type="'+(t||'text')+'" value="'+v+'">';
+return '<div class="'+(t=='ta'||t=='chk'?'fu':'')+'"><label for="f_'+id+'">'+l+(r?' *':'')+'</label>'+c+'<div class="er" id="e_'+id+'"></div></div>'}).join('')+(st==3?'<div class="fu ck"><label><input type="checkbox" id="cs"> I consent to my details being used to respond to this request. *</label><div class="er" id="e_cs"></div></div>':'')}
+window.V={};
+function sv(){ST4[st].forEach(([id,,,t])=>{if(t=='chk')V[id]=[...document.querySelectorAll('input[name=pb]:checked')].map(x=>x.value).join(', ');else V[id]=$('f_'+id).value.trim()})}
+$('bk').onclick=()=>{sv();st--;rf()};
+$('f').onsubmit=e=>{e.preventDefault();sv();let bad=0;
+ST4[st].forEach(([id,,r,t])=>{const v=V[id];let m='';if(r&&!v)m='Required';else if(t=='email'&&v&&!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v))m='Enter a valid email';else if(t=='tel'&&v&&!/^\+?[0-9 ()-]{7,18}$/.test(v))m='Enter a valid phone number';if($('e_'+id))$('e_'+id).textContent=m;if(m)bad=1});
+if(st==3&&!$('cs').checked){$('e_cs').textContent='Consent is required';bad=1}
+if(bad||$('hp').value)return;
+if(st<3){st++;rf();return}
+$('nx').disabled=true;$('nx').textContent='Preparing…';
+const all=ST4.flat().map(([id,l])=>l+': '+(V[id]||'-')).join('\n'),tx='TPRIS assessment request\n'+all;
+const wa='https://wa.me/923236202778?text='+encodeURIComponent(tx),ml='mailto:maryamaientrepreneur@gmail.com?subject='+encodeURIComponent('TPRIS assessment: '+V.company)+'&body='+encodeURIComponent(tx);
+setTimeout(()=>{$('f').style.display='none';$('pr').style.display='none';$('dn').innerHTML='<h3 style="margin:20px 0 10px">Almost done, '+V.name.replace(/[<>&]/g,'')+'.</h3><p>Your request is ready. It reaches us when you press send in WhatsApp or your email app.</p><div class="row"><a class="btn" style="background:var(--pu);color:var(--li)" href="'+wa+'" target="_blank" rel="noopener">Send via WhatsApp</a><a class="btn g" href="'+ml+'">Send via Email</a></div><p class="mu" style="font-size:13px">No database is connected to this page, so requests are not stored on a server.</p>'},600)};
+rf();
+</script></body></html>
